@@ -1,5 +1,18 @@
 package day01_ProgrammingFoundations;
 
+/*
+int day = 3;
+
+String result = switch (day) {
+    case 1, 2 -> "Weekday";
+    case 6, 7 -> "Weekend";
+    default -> "Midweek";
+};
+
+System.out.println(result);
+
+ */
+
 public class OldSwitchDemo {
     public static void main(String[] args) {
         int day = 2;
