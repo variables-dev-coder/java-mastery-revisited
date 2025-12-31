@@ -498,12 +498,803 @@ Since you’re doing daily GitHub updates:
 
 ----------------
 
+# 🔹 MAIN METHOD & PROGRAM STRUCTURE
+## 1️⃣ Why is main method public static?
+- public → JVM must access it from outside the class
+- static → JVM does not create an object to call main
+- void → JVM does not expect any return value
+
+👉 JVM calls main without creating an object
+
+
+-------------
+
+## 2️⃣ What happens if main is not static?
+- Program compiles
+- Program fails at runtime
+
+Error:
+
+NoSuchMethodError: main
+
+
+👉 JVM looks for public static void main(String[])
+
+
+---------------
+
+
+## 3️⃣ Can we overload main?
+
+✔️ Yes, we can overload
+
+❌ JVM will call only the standard main
+
+public static void main(String[] args) { }
+
+public static void main(int a) { }
+
+
+--------------
+
+
+## 4️⃣ Why is class name same as file name?
+- Java compiler maps public class → file
+- Prevents ambiguity during class loading
+- Enforces one public class per file
+
+❌ If mismatch → compile-time error
+
+
+--------------
+
+## 5️⃣ What is the execution flow of a Java program?
+1.JVM starts
+
+2.ClassLoader loads .class
+
+3.Bytecode verification
+
+4.Static blocks executed
+
+5.main() method starts
+
+6.Program execution
+
+7.JVM exits
+
+
+------------------
 
 
 
+# 🔹 VARIABLES & DATA TYPES
+
+## 6️⃣ Difference between local, instance, and static variables
+
+| Type     | Where         | Default Value |
+| -------- | ------------- | ------------- |
+| Local    | Inside method | ❌ No          |
+| Instance | Object level  | ✔️ Yes        |
+| Static   | Class level   | ✔️ Yes        |
 
 
+--------------
 
+
+## 7️⃣ Default values for data types
+
+| Type    | Default  |
+| ------- | -------- |
+| int     | 0        |
+| double  | 0.0      |
+| boolean | false    |
+| char    | `\u0000` |
+| Object  | null     |
+
+⚠️ Local variables have NO default value
+
+------------
+
+## 8️⃣ Why boolean size is JVM-dependent?
+- Java spec does not define size
+- Depends on JVM optimization
+- Logical value only (true/false)
+
+👉 Not used for arithmetic → size irrelevant
+
+
+-------------
+
+## 9️⃣ Why char uses 2 bytes in Java?
+- Java uses Unicode (UTF-16)
+- Supports international characters
+- 2 bytes = 16 bits
+
+----------------
+
+# 🔹 TYPE CASTING
+
+## 🔟 What is widening casting?
+- Small → large data type
+- Automatic
+- No data loss
+
+int a = 10;
+
+double b = a;
+
+
+------------
+
+## 1️⃣1️⃣ Why narrowing needs explicit cast?
+- Large → small type
+- Risk of data loss
+- Java forces developer awareness
+
+double d = 10.5;
+
+int i = (int) d;
+
+
+-------------------
+
+## 1️⃣2️⃣ Can casting cause data loss?
+
+✔️ Yes (narrowing)
+
+int a = 130;
+
+byte b = (byte) a; // data loss
+
+-------------
+
+## 1️⃣3️⃣ Is casting allowed between boolean and int?
+
+❌ No
+
+Java strictly separates logical and numeric types
+
+
+-----------------
+
+# 🔹 OPERATORS
+
+## 1️⃣4️⃣ Difference between & and &&
+
+| Operator | Behavior             |
+| -------- | -------------------- |
+| `&`      | Evaluates both sides |
+| `&&`     | Short-circuits       |
+
+
+---------------------
+
+## 1️⃣5️⃣ Difference between | and ||
+
+| Operator | Behavior |                  |                        |
+| -------- | -------- | ---------------- | ---------------------- |
+| `        | `        | Always evaluates |                        |
+| `        |          | `                | Stops if first is true |
+
+
+------------------
+
+## 1️⃣6️⃣ What is short-circuiting?
+- JVM skips evaluating second condition
+- Improves performance
+- Prevents errors (like NPE)
+
+
+--------------
+
+
+## 1️⃣7️⃣ Why == is dangerous for objects?
+- Compares reference, not content
+
+String a = new String("Hi");
+
+String b = new String("Hi");
+
+a == b ❌
+
+a.equals(b) ✔️
+
+
+------------------
+
+## 1️⃣8️⃣ Bitwise operators real use cases?
+- Performance optimization
+- Flags & permissions
+- Cryptography
+- Networking protocols
+
+-------------------
+
+
+# 🔹 LOOPS
+
+1️⃣9️⃣ Difference between while and do-while
+
+
+| while                  | do-while               |
+| ---------------------- | ---------------------- |
+| Checks condition first | Executes at least once |
+
+
+---------------
+
+
+## 2️⃣0️⃣ Infinite loop scenarios
+
+while(true) {}
+
+for(;;) {}
+
+
+Or:
+
+Missing increment
+
+Wrong condition
+
+
+----------------
+
+
+## 2️⃣1️⃣ Loop variable scope
+- Exists only inside loop
+- Destroyed after loop ends
+
+
+----------------
+
+## 2️⃣2️⃣ break vs continue
+
+| break      | continue        |
+| ---------- | --------------- |
+| Exits loop | Skips iteration |
+
+------------------
+
+# 🔹 JAVA DESIGN DECISIONS (INTERVIEW FAVORITES)
+
+## 2️⃣3️⃣ Why Java doesn’t support pointers?
+- Prevents memory corruption
+- Improves security
+- Simplifies programming
+
+(Java uses references internally)
+
+
+---------------
+
+## 2️⃣4️⃣ Why Java has no unsigned types?
+- Simpler language design
+- Avoid confusion
+- Use larger signed types instead
+
+(Java 8 introduced unsigned methods, not types)
+
+-------------
+
+## 2️⃣5️⃣ Can we use goto in Java?
+
+❌ Keyword exists
+
+❌ Not implemented
+
+Reason:
+        - Makes code unreadable
+        - Encourages bad design
+
+
+--------------------
+
+## 2️⃣6️⃣ Why String is not primitive?
+- String needs methods & immutability
+- Stored as object for security
+- Supports memory sharing (string pool)
+
+----------------------
+
+## 2️⃣7️⃣ Why array index starts from 0?
+- Direct memory offset calculation
+- Faster access
+- Inherited from low-level languages
+
+-------------------
+
+# 🔥 PROGRAMMING FOUNDATIONS – ADVANCED INTERVIEW Q&A
+
+## 🔹 CODE EXECUTION & MEMORY
+## 1️⃣ What is stack overflow and why does it occur?
+
+Answer:
+
+Occurs when stack memory is exhausted, usually due to:
+- Infinite recursion
+- Very deep method calls
+
+👉 Stack stores method frames, not objects.
+
+
+---------------
+
+## 2️⃣ Difference between stack memory and heap memory?
+
+| Stack               | Heap           |
+| ------------------- | -------------- |
+| Stores method calls | Stores objects |
+| Fast                | Slower         |
+| Thread-safe         | Shared         |
+| Auto cleaned        | GC managed     |
+
+
+--------------------------------
+
+## 3️⃣ Why is heap shared among threads but stack is not?
+
+Answer:
+
+Each thread has its own execution path → separate stack
+
+Objects must be accessible → shared heap
+
+----------------
+
+
+## 4️⃣ What is memory leak in Java?
+
+Answer:
+
+Objects remain reachable but unused, so GC cannot clean them.
+
+Example:
+- Static collections
+- Listener references
+- Caches without eviction
+
+------------------
+
+# 🔹 COMPILATION & RUNTIME
+
+## 5️⃣ Difference between compile-time and runtime errors?
+
+| Compile-Time         | Runtime                   |
+| -------------------- | ------------------------- |
+| Syntax errors        | Logical / JVM errors      |
+| Detected by compiler | Detected during execution |
+| Code won’t compile   | Program crashes           |
+
+
+-------------------
+
+## 6️⃣ Can Java program run without compilation?
+
+Answer:
+
+❌ No
+
+Even Java source must be compiled to bytecode before execution.
+
+
+-------------------
+
+
+## 7️⃣ Why Java is both compiled and interpreted?
+
+Answer:
+- Compilation → portability
+- Interpretation + JIT → performance
+
+# 🔹 OBJECTS, REFERENCES & PASSING DATA
+
+## 8️⃣ Is Java pass-by-value or pass-by-reference?
+
+Correct Answer:
+
+✔️ Java is always pass-by-value
+
+(For objects, the reference value is passed)
+
+---------------
+
+## 9️⃣ Why modifying object inside method affects original object?
+
+Answer:
+
+Because both references point to same object in heap
+
+
+-------------------
+
+
+## 🔟 Can we return multiple values from a method?
+
+Answer:
+
+Indirectly:
+- Object
+- Array
+- Collection
+- Wrapper class
+
+-------------------
+
+# 🔹 DATA STRUCTURES & ARRAYS
+
+## 1️⃣1️⃣ Why arrays have fixed size?
+
+Answer:
+- Direct memory allocation
+- Faster access
+- Predictable memory layout
+
+-------------------
+
+
+## 1️⃣2️⃣ Difference between array and ArrayList?
+
+| Array             | ArrayList       |
+| ----------------- | --------------- |
+| Fixed size        | Dynamic         |
+| Faster            | Slightly slower |
+| Primitive support | Object only     |
+
+
+----------------------
+
+## 1️⃣3️⃣ Why Java array is object?
+
+Answer:
+- Needs metadata
+- Bounds checking
+- Inherits from Object
+
+-------------------
+
+# 🔹 STRING & IMMUTABILITY
+
+## 1️⃣4️⃣ Why String is immutable?
+
+Answer:
+- Security
+- Thread-safety
+- Caching (String pool)
+- Hashcode consistency
+
+
+----------------
+
+
+## 1️⃣5️⃣ Difference between String, StringBuilder, StringBuffer?
+
+| Type          | Mutable | Thread-safe |
+| ------------- | ------- | ----------- |
+| String        | ❌       | ✔️          |
+| StringBuilder | ✔️      | ❌           |
+| StringBuffer  | ✔️      | ✔️          |
+
+
+----------------
+
+
+# 🔹 CONTROL FLOW & DESIGN
+
+## 1️⃣6️⃣ Why Java does not support multiple inheritance?
+
+Answer:
+Avoids diamond problem
+
+Uses interfaces instead.
+
+-----------------------
+
+
+## 1️⃣7️⃣ Why Java has finally keyword?
+
+Answer:
+- Prevent modification
+- Improve readability
+- Enable compiler optimizations
+
+------------------
+
+## 1️⃣8️⃣ Difference between final, finally, and finalize()?
+
+| Keyword    | Purpose              |
+| ---------- | -------------------- |
+| final      | Constant             |
+| finally    | Cleanup              |
+| finalize() | GC hook (deprecated) |
+
+
+-----------
+
+# 🔹 EXCEPTIONS & ERRORS
+
+## 1️⃣9️⃣ Difference between Exception and Error?
+
+| Exception         | Error           |
+| ----------------- | --------------- |
+| Recoverable       | Not recoverable |
+| Application-level | JVM-level       |
+
+
+----------------
+
+## 2️⃣0️⃣ Checked vs Unchecked exception?
+
+| Checked      | Unchecked |
+| ------------ | --------- |
+| Compile-time | Runtime   |
+| Must handle  | Optional  |
+
+
+-------------
+
+
+# 🔹 MULTITHREADING BASICS
+
+2️⃣1️⃣ What is thread?
+
+Answer:
+
+Smallest unit of execution inside a process.
+
+--------------------------------
+
+
+## 2️⃣2️⃣ Why synchronization is required?
+
+Answer:
+
+Prevent race conditions on shared resources.
+--------------------
+
+
+## 2️⃣3️⃣ What is deadlock?
+
+Answer:
+
+Two threads waiting indefinitely for each other’s resource.
+
+--------------
+
+#🔹 PERFORMANCE & DESIGN THINKING
+
+## 2️⃣4️⃣ Why premature optimization is dangerous?
+
+Answer:
+- Optimizing before measuring leads to:
+- Complex code
+- Wrong assumptions
+
+--------------------
+
+2️⃣5️⃣ What makes code maintainable?
+
+Answer:
+- Readability
+- Modularity
+- Naming
+- Low coupling
+- High cohesion
+
+------------------------
+
+## 1️⃣ Readability
+
+What it is
+
+How easy your code is to understand by another developer (or future you).
+
+Why it matters
+- Code is read more times than written
+- Bugs hide in unclear code
+- Interviewers judge readability instantly
+
+Bad Example ❌
+
+int x = 0;
+
+for(int i=0;i<l;i++){
+
+    if(a[i]==1)x++;
+    
+}
+
+Good Example ✅
+
+int activeUserCount = 0;
+
+for (int i = 0; i < users.length; i++) {
+
+    if (users[i].isActive()) {
+    
+        activeUserCount++;
+        
+    }
+    
+}
+
+👉 Clear names + spacing = readable
+
+-------------------
+
+
+## 2️⃣ Modularity
+
+What it is
+
+Breaking code into small, independent units (methods/classes).
+
+Why it matters
+- Easy to test
+- Easy to change
+- Easy to reuse
+
+Bad Example ❌
+
+public void processOrder() {
+
+    // validate
+    
+    // calculate
+    
+    // save
+    
+    // notify
+    
+}
+
+Good Example ✅
+
+public void processOrder() {
+
+    validateOrder();
+    
+    calculateTotal();
+    
+    saveOrder();
+    
+    sendNotification();
+    
+}
+
+👉 One method = one responsibility
+
+
+----------------------
+
+# 3️⃣ Naming
+
+What it is
+
+Using meaningful, intention-revealing names.
+
+Why it matters
+- Code becomes self-documenting
+- Reduces comments
+- Prevents misuse
+
+Bad Naming ❌
+
+int d;
+
+void doIt();
+
+Good Naming ✅
+
+int daysUntilExpiry;
+
+void calculateSalary();
+
+Interview Rule
+
+If you need comments to explain names → names are bad
+
+----------------
+
+
+## 4️⃣ Low Coupling
+
+What it is
+
+Classes should depend as little as possible on each other.
+
+Why it matters
+- Changing one class doesn’t break others
+- Easier refactoring
+- Better testability
+
+High Coupling ❌
+
+class OrderService {
+
+    PaymentService paymentService = new PaymentService();
+    
+}
+
+Low Coupling ✅
+
+class OrderService {
+
+    private PaymentService paymentService;
+
+    OrderService(PaymentService paymentService) {
+    
+        this.paymentService = paymentService;
+        
+    }
+    
+}
+
+
+👉 This enables dependency injection
+
+-------------------
+
+
+## 5️⃣ High Cohesion
+
+What it is
+
+A class should have one clear purpose.
+
+Why it matters
+- Easier to understand
+- Easier to maintain
+- Cleaner design
+
+Low Cohesion ❌
+
+class UserUtils {
+
+    void saveUser() {}
+    
+    void calculateTax() {}
+    
+    void sendEmail() {}
+    
+}
+
+High Cohesion ✅
+
+class UserService {
+
+    void saveUser() {}
+    
+}
+
+class TaxService {
+    void calculateTax() {}
+}
+
+class EmailService {
+    void sendEmail() {}
+}
+
+
+👉 One class = one responsibility
+
+
+## 🧩 LOW COUPLING + HIGH COHESION (Together)
+
+| Principle     | Focus                         |
+| ------------- | ----------------------------- |
+| Low Coupling  | Relationship between classes  |
+| High Cohesion | Responsibility within a class |
+
+🎯 Best design always has both
+
+## 🧠 INTERVIEW ONE-LINERS (MEMORIZE)
+- Readability → Code should explain itself
+- Modularity → Divide and conquer
+- Naming → Names are documentation
+- Low Coupling → Change without breaking
+- High Cohesion → One class, one purpose
 
 
 
