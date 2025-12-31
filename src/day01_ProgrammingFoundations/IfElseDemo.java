@@ -1,5 +1,14 @@
 package day01_ProgrammingFoundations;
 
+/*
+int x = 10;
+
+if (x = 5) {   // valid or invalid?
+    System.out.println("Yes");
+}
+
+ */
+
 public class IfElseDemo {
     public static void main(String[] args) {
         int marks = 65;
