@@ -18,7 +18,7 @@ public class Calculation {
 
     public static void main(String[] args) {
         Calculation c = new Calculation();
-        
+
         System.out.println(c.add(2, 3));         // 6
 
         System.out.println(c.add(2.5, 3.5));     // 6.0
