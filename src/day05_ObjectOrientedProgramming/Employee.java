@@ -32,3 +32,7 @@ class FullTimeEmployee extends Employee {
 
 //Employee: Munna
 //50000.0
+
+//Use abstract class when:
+//You need constructors
+//You need common fields
