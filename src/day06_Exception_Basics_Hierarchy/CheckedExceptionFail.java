@@ -12,7 +12,7 @@ import java.io.FileReader;
 public class CheckedExceptionFail {
 
     public static void main(String[] args) {
-        
+
        // FileReader reader = new FileReader("data.txt");
     }
 }
