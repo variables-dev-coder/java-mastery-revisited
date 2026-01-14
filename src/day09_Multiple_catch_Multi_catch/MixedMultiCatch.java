@@ -14,3 +14,9 @@ public class MixedMultiCatch {
 }
 
 // Allowed only if handling is same.
+
+//Multiple catch → different logic
+//Multi-catch → same logic
+//Order → child first
+//No parent + child in multi-catch
+//Multi-catch variable is final
