@@ -18,3 +18,7 @@ public class MultipleCatchExample {
     }
 }
 
+// Multiple Catch Blocks (Different Handling)
+
+// Only one catch executes
+//First matching catch wins
