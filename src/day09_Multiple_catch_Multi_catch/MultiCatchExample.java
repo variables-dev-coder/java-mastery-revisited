@@ -16,3 +16,8 @@ public class MultiCatchExample {
 }
 
 // Runtime exception occurred
+
+//Behind the scenes
+//JVM checks type
+//Executes shared block
+//e is implicitly final
