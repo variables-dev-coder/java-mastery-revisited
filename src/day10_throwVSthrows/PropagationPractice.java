@@ -17,7 +17,16 @@ public class PropagationPractice {
     }
 
     public static void main(String[] args) {
-        level1();
+
+       // level1();
+
+        // handled --------------
+
+        try {
+            level1();
+        } catch (ArithmeticException e) {
+            System.out.println("Handled at main boundary");
+        }
     }
 }
 
