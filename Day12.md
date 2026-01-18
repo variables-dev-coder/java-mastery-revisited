@@ -1,5 +1,5 @@
 # 🗓️ Java Revision – Day 12
-# Exception Handling – Day 7
+## Exception Handling – Day 7
 ## try-with-resources (Memory Safety)
 
 ---
