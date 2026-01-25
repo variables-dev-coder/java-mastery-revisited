@@ -44,7 +44,7 @@ Step 2: Loop starts
 | 2 | 9      | 8   | 9 > 8 → ignore  |
 | 3 | 5      | 8   | 5 < 8 → min = 5 |
 | 4 | 7      | 5   | 7 > 5 → ignore  |
-| 5 | 1      | 5   | 1 < 5 → ignore  |
+| 5 | 1      | 5   | 1 < 5 → min = 1 |
 | 6 | 2      | 1   | 2 > 1 → ignore  |
 
 Final Answer:
