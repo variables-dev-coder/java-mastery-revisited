@@ -44,7 +44,7 @@ public class AllDeleteOperations {
         System.out.println("Array after all deletions:");
         for (int i = 0; i < size; i++) {
             System.out.print(arr[i] + " ");
-            
+
         }
     }
 }
