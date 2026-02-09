@@ -348,6 +348,165 @@ Answer:
 Arrays are fixed-size, heap-allocated data structures that provide fast indexed access but costly updates.
 
 
+Q31. In Java, arrays are stored in heap memory.
+
+If that’s true, why is array access still O(1)? Explain clearly.
+
+A. Array access is O(1) because elements are stored contiguously and their memory address can be calculated directly using the index.
+
+
+
+Q32. In Java, when you pass an array to a method and modify its elements inside the method, the changes are reflected outside the method.
+
+Why does this happen?
+
+Is Java pass-by-value or pass-by-reference? Explain clearly.
+
+
+Answer :
+
+In Java, everything is pass-by-value.
+
+When an array is passed to a method, the value being passed is the reference to the array, not the actual array elements.
+
+Both the caller and the method receive references pointing to the same array object in heap memory.
+
+So, when we modify the elements of the array inside the method, the changes are reflected outside because both references point to the same object.
+
+However, if we reassign the array reference inside the method, it does not affect the original array.
+
+
+Q. Suppose you have an array and you want to insert an element at index 0.
+
+Explain step by step how you would do it, and also explain
+
+why insertion at the beginning of an array is the most costly operation.
+
+A.
+
+To insert an element at the beginning of an array, first I check whether there is available space in the array.
+
+Since arrays are fixed-size and stored in contiguous memory, I need to shift all existing elements one position to the right, starting from the last index up to index 0.
+
+This shifting must be done from right to left to avoid overwriting elements.
+
+After shifting, I place the new element at index 0 and update the logical size of the array.
+
+
+Q. What is the difference between array traversal and array searching?
+
+Also explain the time complexity of both.
+
+A. 
+
+Array traversal means visiting every element of the array one by one, usually from index 0 to length - 1, to perform some operation like printing, summing, or counting.
+
+Array searching means checking whether a specific element exists in the array. Searching may stop early if the element is found, but it still uses traversal internally.
+
+The time complexity of traversal is always O(n) because every element is visited.
+
+The time complexity of linear search is O(n) in the worst case, and O(1) in the best case when the element is found at the first index.
+
+
+
+Q. You are given an unsorted array.
+
+The interviewer asks:
+
+“How will you find the minimum and maximum element in the array?”
+
+Explain:
+
+The logic
+
+The number of traversals
+
+The time and space complexity
+
+A:
+
+To find the minimum and maximum element in an unsorted array,
+
+I first assume the first element of the array as both min and max.
+
+Then I traverse the array from the second element onward.
+
+For each element:
+
+If it is smaller than min, I update min
+
+If it is greater than max, I update max
+
+This way, both minimum and maximum can be found in a single traversal.
+
+
+⏱ Time Complexity
+
+Since each element is visited once, the time complexity is O(n).
+
+📦 Space Complexity
+
+Only two extra variables are used, so the space complexity is O(1).
+
+
+Q. What is the difference between Array and ArrayList in Java?
+
+The interviewer then asks a follow-up:
+
+“If both provide O(1) access, why would you ever choose an array over an ArrayList?”
+
+
+A:
+
+Arrays in Java are fixed in size, while ArrayList is dynamic and can grow or shrink automatically.
+
+Both provide O(1) access, but I would choose an array when the size is known in advance and performance or memory efficiency is critical.
+
+Arrays can store primitive types directly, avoid boxing and unboxing, and have less memory overhead compared to ArrayList.
+
+ArrayList, on the other hand, is better suited when the size is dynamic and flexibility or cleaner APIs are required.
+
+
+
+Q: You are given an array and asked to delete an element at a given index.
+
+Explain:
+
+How you will do it step by step
+
+Why deletion in an array is costly
+
+Time complexity
+
+
+A:
+
+To delete an element at a given index in an array,
+
+I first identify the index to be removed.
+
+Since arrays are stored in contiguous memory, I shift all elements to the left, starting from the next index, to fill the gap created by deletion.
+
+After shifting, I reduce the logical size of the array by one.
+
+Deletion in an array is costly because multiple elements may need to be shifted to maintain order.
+
+The time complexity of deletion is O(n), and the space complexity is O(1).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
