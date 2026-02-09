@@ -1,7 +1,7 @@
 package day21_Array_revision;
 
 public class LinearSearchExample {
-    
+
     public static void main(String[] args) {
 
         int[] arr = {5, 8, 12, 3, 9};
