@@ -17,6 +17,6 @@ public class PrefixSumBasics {
         }
 
         for(int num : prefix)
-            System.out.print(num + " ");  // 2 6 12 19 27 37 
+            System.out.print(num + " ");  // 2 6 12 19 27 37
     }
 }
