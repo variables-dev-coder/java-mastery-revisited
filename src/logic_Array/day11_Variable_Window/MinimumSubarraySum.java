@@ -24,7 +24,7 @@ public class MinimumSubarraySum {
             }
         }
 
-        if (minLength == Integer.MIN_VALUE)
+        if (minLength == Integer.MAX_VALUE)
             System.out.println(0);
         else
             System.out.println(minLength);
