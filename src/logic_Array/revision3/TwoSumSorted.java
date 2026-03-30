@@ -14,7 +14,7 @@ public class TwoSumSorted {
             else if (sum < target) left++;
             else right--;
         }
-        
+
         return new int[]{-1, -1};
     }
 
