@@ -60,6 +60,4 @@ public class String_Methods {
 6. Where does "Programming" start?
         ↓
     indexOf()
-
-    
  */
