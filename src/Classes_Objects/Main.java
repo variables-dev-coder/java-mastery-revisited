@@ -1,6 +1,6 @@
 package Classes_Objects;
 
-class Student {
+class Student2 {
 
     String name;
     int age;
@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Creating object
-        Student s1 = new Student();
+        Student2 s1 = new Student2();
 
         // Assigning values
         s1.name = "Rahul";
