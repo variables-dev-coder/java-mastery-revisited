@@ -1,13 +1,13 @@
 package polymorphism;
 
-class Animal {
+class Animal3 {
 
     void makeSound() {
         System.out.println("Animal makes a sound");
     }
 }
 
-class Dog extends Animal {
+class Dog3 extends Animal3 {
 
     @Override
     void makeSound() {
@@ -19,10 +19,10 @@ public class Method_overriding {
 
     public static void main(String[] args) {
 
-        Animal animal = new Animal();
+        Animal3 animal = new Animal3();
         animal.makeSound();
 
-        Dog dog = new Dog();
+        Dog3 dog = new Dog3();
         dog.makeSound();
     }
 }
