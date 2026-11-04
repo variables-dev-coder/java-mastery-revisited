@@ -1,11 +1,11 @@
 package abstract_revision;
 
-abstract class Employee {
+abstract class Employee15 {
 
     private int id;
     private String name;
 
-    Employee(int id, String name) {
+    Employee15(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -27,7 +27,7 @@ abstract class Employee {
     }
 }
 
-class PermanentEmployee extends Employee {
+class PermanentEmployee extends Employee15 {
 
     private double monthlySalary;
 
@@ -42,7 +42,7 @@ class PermanentEmployee extends Employee {
     }
 }
 
-class ContractEmployee extends Employee {
+class ContractEmployee extends Employee15 {
 
     private int workingDays;
     private double dailyRate;
@@ -63,9 +63,9 @@ public class Main_15 {
 
     public static void main(String[] args) {
 
-        Employee e1 = new PermanentEmployee(101, "Rahul", 40000);
+        Employee15 e1 = new PermanentEmployee(101, "Rahul", 40000);
 
-        Employee e2 = new ContractEmployee(102, "Amit", 20, 1500);
+        Employee15 e2 = new ContractEmployee(102, "Amit", 20, 1500);
 
         e1.displayDetails();
 
