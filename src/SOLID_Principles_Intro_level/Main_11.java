@@ -2,7 +2,7 @@ package SOLID_Principles_Intro_level;
 
 // Interface Segregation Principle (ISP)
 
-// Example 1: Printer Management
+// Example 2: Employee Work Management
 
 interface Workable {
     void work();
