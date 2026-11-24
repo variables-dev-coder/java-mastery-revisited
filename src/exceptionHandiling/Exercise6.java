@@ -39,11 +39,12 @@ public class Exercise6 {
 Explanation:
 
 Let's understand the execution:
-1. connectDatabase() declares throws SQLException.
-2. The method explicitly throws an SQLException.
-3. main() calls connectDatabase().
-4. The catch block handles the SQLException.
-5. The program continues.
+  1. connectDatabase() declares throws SQLException.
+  2. The method explicitly throws an SQLException.
+  3. main() calls connectDatabase().
+  4. The catch block handles the SQLException.
+  5. The program continues.
+  
 Note: This example simulates a database failure. It doesn't establish an actual database connection.
 
  */
