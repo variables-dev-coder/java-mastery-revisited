@@ -44,7 +44,7 @@ Let's understand the execution:
   3. main() calls connectDatabase().
   4. The catch block handles the SQLException.
   5. The program continues.
-  
+
 Note: This example simulates a database failure. It doesn't establish an actual database connection.
 
  */
